@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,10 @@ class RegisteredUserController extends Controller
         return Inertia::render('Auth/Register');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Student $student)
     {
+        $details = $student->name;
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -32,6 +35,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('create', 'Student ' . $details . ' has been successfully registered.');
     }
 }

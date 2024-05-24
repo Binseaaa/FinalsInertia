@@ -9,7 +9,7 @@
 <template>
     <AuthenticatedLayout>
         <div class="relative overflow-x-auto sm:rounded-lg">
-            <div class="p-4">
+            <div class="p-4 flex justify-between">
                 <label for="table-search" class="sr-only">Search</label>
                 <div class="relative mt-1">
                     <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -19,9 +19,12 @@
                     </div>
                     <input type="text" id="table-search" class="block pt-2 ps-10 text-sm border border-gray-300 rounded-lg w-80 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
                 </div>
+                <div>
+                    <Button class="bg-green-500 px-5 py-2 rounded-xl text-white text-lg hover:bg-green-400">Add</Button>
+                </div>
             </div>
-            <table class="w-[80vw] text-sm text-left rtl:text-right text-white p-5 m-auto">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <table class="w-[95vw] text-base text-left rtl:text-right text-white p-5 m-auto">
+                <thead class="text-base text-gray-700 uppercase bg-white">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Id Number
@@ -57,7 +60,7 @@
                         <td class="px-6 py-4">
                             {{ student.department }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4" :class="{ 'text-green-500': student.status === 'Cleared', 'text-red-500': student.status !== 'Cleared' }">
                             {{ student.status }}
                         </td>
                         <td class="px-6 py-4">

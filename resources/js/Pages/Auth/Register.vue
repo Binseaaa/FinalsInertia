@@ -30,7 +30,7 @@ const submit = () => {
         <div class="sm:p-6">
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="name" value="Name" class="text-white"/>
 
                 <TextInput
                     id="name"
@@ -46,7 +46,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="Email" class="text-white"/>
 
                 <TextInput
                     id="email"
@@ -61,7 +61,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="Password" class="text-white"/>
 
                 <TextInput
                     id="password"
@@ -76,7 +76,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <InputLabel for="password_confirmation" value="Confirm Password" class="text-white"/>
 
                 <TextInput
                     id="password_confirmation"
