@@ -6,6 +6,12 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+Route::get('/student', function () {
+    return inertia('Student');
+})->name('student');
+
+Route::resource('/students', StudentController::class);
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -26,7 +32,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-Route::get('/student', function () {
-    return inertia('Student');
-})->name('student');

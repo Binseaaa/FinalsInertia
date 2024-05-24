@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('id_num');
             $table->string('name');
             $table->string('email');
-            $table->string('department');
+            $table->enum('department', ['CAST', 'COE', 'CON', 'CABM-HM', 'CABM-B', 'CCJ']);
             $table->string('status');
             $table->timestamps();
         });

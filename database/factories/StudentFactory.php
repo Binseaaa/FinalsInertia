@@ -17,7 +17,11 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id_num' => strtoupper(fake()->bothify('??#########??')),
+            'name' => fake() -> name(),
+            'email' => fake() ->email(),
+            'department' => fake()->randomElement(['CAST', 'COE', 'CON', 'CABM-HM', 'CABM-B', 'CCJ']),
+            'status' => fake() -> randomElement(['Cleared', 'Not Cleared']),
         ];
     }
 }
