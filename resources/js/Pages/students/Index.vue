@@ -20,7 +20,7 @@
                     <input type="text" id="table-search" class="block pt-2 ps-10 text-sm border border-gray-300 rounded-lg w-80 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
                 </div>
             </div>
-            <table class="w-[80vw] text-sm text-left rtl:text-right text-white p-5">
+            <table class="w-[80vw] text-sm text-left rtl:text-right text-white p-5 m-auto">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
