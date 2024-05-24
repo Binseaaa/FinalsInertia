@@ -2,7 +2,7 @@
     import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
     const props = defineProps({
-        student: Array
+        students: Array
     })
 </script>
 
@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="student in student" :key="student.id">
+                <tr v-for="student in students" :key="student.id">
                     <td>{{ student.id_num }}</td>
                     <td>{{ student.name }}</td>
                     <td>{{ student.email }}</td>

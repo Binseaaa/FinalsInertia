@@ -3,14 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
-Route::get('/student', function () {
-    return inertia('Student');
-})->name('student');
-
-Route::resource('/students', StudentController::class);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -19,7 +14,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -31,4 +26,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/student', function () {
+    return Inertia::render('Student');
+})->middleware(['auth', 'verified'])->name('student');
+
+Route::resource('/students', StudentController::class);
+
+// Redirect to dashboard if authenticated
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('dashboard');
+    });
+});
+
 require __DIR__.'/auth.php';
+
+
+

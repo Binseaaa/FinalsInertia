@@ -50,7 +50,7 @@ defineProps({
               </li>
               <li class="me-2">
                 <Link :href="route('register')" :class="{'dark:border-green-600 dark:text-green-600': $page.component == 'Auth/Register'}" class="transition ease-in-out hover:-translate-y-1 hover:scale-110 inline-flex items-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-green-400 hover:border-green-400 group">
-                  <svg class="w-6 h-6 me-2 text-gray-600 group-hover:text-green-600 dark:group-hover:text-green-400" :class="{'dark:text-green-600': $page.component === 'Auth/Register'}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"y>
+                  <svg class="w-6 h-6 me-2 text-gray-600 group-hover:text-green-600 dark:group-hover:text-green-400" :class="{'dark:text-green-600': $page.component === 'Auth/Register'}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                   </svg>Register
                 </Link>
@@ -58,7 +58,7 @@ defineProps({
             </ul>
             <div class="relative">
               <slot />
-            </div> 
+            </div>
           </div>
         </div>
       </div>
