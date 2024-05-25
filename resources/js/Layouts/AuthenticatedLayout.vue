@@ -148,9 +148,9 @@ const showingNavigationDropdown = ref(false);
             </header>
 
             <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
+                <main id="transition">
+                    <slot />
+                </main>
         </div>
     </div>
 </template>
@@ -158,5 +158,13 @@ const showingNavigationDropdown = ref(false);
 <style scoped>
 #wrapper {
     background-color: #34495e;
+}
+
+#transition {
+	animation: scaleUpCenter .4s ease-out both;
+}
+
+@keyframes scaleUpCenter {
+	from { opacity: 0; transform: scale(.7); }
 }
 </style>
