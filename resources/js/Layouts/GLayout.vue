@@ -32,12 +32,12 @@ defineProps({
     </div>
 
     <!-- Main Content Section -->
-    <main class="main-content">
+    <main class="main-content min-h-[90vh]">
       <div>
         <div class="text-white text-5xl pt-2">Online Clearance System</div>
       </div>
       <div class="h-screen flex items-center justify-center shadow">
-        <div class="h-[80vh] w-[60vw] flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
+        <div class="h-[85vh] w-[60vw] flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row dark:border-gray-700 dark:bg-gray-800">
           <img class="h-[100%] w-[25vw] rounded-xl object-cover" src="https://www.shutterstock.com/image-vector/drawing-portrait-young-students-laptop-600nw-2238125795.jpg" alt="">
           <div class="leading-normal w-full">
             <ul class="justify-evenly flex text-sm font-medium text-center text-gray-500 dark:text-gray-400 ">
