@@ -161,8 +161,27 @@ const showingNavigationDropdown = ref(false);
 }
 
 #transition {
-	animation: scaleUpCenter .4s ease-out both;
+    animation: ease-in-out 1s zoom-in forwards;
 }
+
+/* @keyframes zoom-in {
+    0% {
+        opacity: .2;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+@keyframes zoom-out {
+    0% {
+        opacity: 1;
+    }
+    100%{
+        opacity: .2;
+    }
+} */
 
 @keyframes scaleUpCenter {
 	from { opacity: 0; transform: scale(.7); }

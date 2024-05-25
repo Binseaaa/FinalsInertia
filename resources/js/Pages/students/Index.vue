@@ -10,7 +10,7 @@ const props = defineProps({
 const deleteStudentId = ref(null);
 const editStudent = ref(null)
 const showDeleteModal = ref(false);
-const showCreateModal = ref(false);
+const showCreateModal = ref(false); 
 const form = useForm({
     name: '',
     email: '',
@@ -67,14 +67,22 @@ const submit = () => {
 
 <template>
     <AuthenticatedLayout>
-        <div class="relative overflow-x-auto sm:rounded-lg m-5">
-            <div class="p-4 flex flex-col sm:flex-row justify-between">
-                <h1 class="text-3xl text-white mb-4 sm:mb-0">Students</h1>
+        <div class="relative overflow-x-auto sm:rounded-lg">
+            <div class="p-4 flex justify-between">
+                <label for="table-search" class="sr-only">Search</label>
+                <div class="relative mt-1">
+                    <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </div>
+                    <input type="text" id="table-search" class="block pt-2 ps-10 text-sm border border-gray-300 rounded-lg w-80 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
+                </div>
                 <div>
                     <Button @click="toggleCreateModal" class="bg-green-500 px-5 py-2 rounded-xl text-white text-lg hover:bg-green-400">Add</Button>
                 </div>
             </div>
-            <table class="min-w-full text-base text-left rtl:text-right text-white m-auto">
+            <table class="w-[95vw] text-base text-left rtl:text-right text-white p-5 m-auto">
                 <thead class="text-base text-gray-700 uppercase bg-white">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -114,25 +122,17 @@ const submit = () => {
                         <td class="px-6 py-4" :class="{ 'text-green-500': student.status === 'Cleared', 'text-red-500': student.status !== 'Cleared' }">
                             {{ student.status }}
                         </td>
-                        <td class="px-6 py-4 flex space-x-2">
+                        <td class="px-6 py-4">
                             <button @click="toggleEditModal(student)" class="py-2 hover:text-blue-600 rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                 </svg>
                             </button>
-                            <button type="submit"  @click="() => toggleDeleteModal(true, student.id)" class="text-xl hover:text-red-700 text-white px-4 py-2 rounded">
-                                <svg class="w-6 h-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z"/>
-                                <line x1="4" y1="7" x2="20" y2="7" />
-                                <line x1="10" y1="11" x2="10" y2="17" />
-                                <line x1="14" y1="11" x2="14" y2="17" />
-                                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                </svg>
+                            <button type="submit"  @click="() => toggleDeleteModal(true, student.id)" class="text-xl hover:text-red-700 text-white px-4 py-2 rounded"><svg class="w-6 h-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="7" x2="20" y2="7" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" />  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
                             </button>
                         </td>
                     </tr>
-                </tbody>
+                    </tbody>
             </table>
         </div>
     </AuthenticatedLayout>
@@ -198,10 +198,10 @@ const submit = () => {
                     <select id="department" class="text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:focus:ring-blue-500 dark:focus:border-blue-500" v-model="form.department">
                       <option value="CAST">CAST</option>
                       <option value="CABM-HM">CABM-HM</option>
-                      <option value="CAST">CON</option>
-                      <option value="CABM-HM">COE</option>
-                      <option value="CAST">CCJ</option>
-                      <option value="CABM-HM">CABM-B</option>
+                      <option value="CON">CON</option>
+                      <option value="COE">COE</option>
+                      <option value="CCJ">CCJ</option>
+                      <option value="CABM-B">CABM-B</option>
                     </select>
                 </div>
             </div>
